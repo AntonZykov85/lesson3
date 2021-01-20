@@ -5,4 +5,3 @@ def new_user_param():
     return user_param_dict
 
 print(new_user_param())
-
