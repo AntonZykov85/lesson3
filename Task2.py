@@ -1,7 +1,12 @@
-def new_user_param():
-    user_param_str = (input('введите поочереди: имя пользователя, фамилия пользователя, год рождения, город проживания, e-mail, номер телефона '))
-    user_param_list = user_param_str.split()
-    user_param_dict = {'имя пользователя': (user_param_list[0]), 'фамилия пользователя': (user_param_list[1]), 'год рождения': (user_param_list[2]), 'город проживания': (user_param_list[3]), 'e-mail': (user_param_list[4]), 'номер телефона': (user_param_list[5])}
-    return user_param_dict
+class Road:
 
-print(new_user_param())
+    def __init__(self):
+        print('начинаем расчет массы асфальта, необходимого для покрытия всего дорожного полотна')
+        self._length = float(input('введите длину дороги в метрах ', ))
+        self._width = float(input('введите ширину дороги в метрах ', ))
+
+    def mass(self):
+        return self._length * self._width * 25 * 5
+
+road_msk_khv = Road()
+print('для покрытия всего дорожного полотна необходимо ', road_msk_khv.mass(), 'тонн')

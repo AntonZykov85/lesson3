@@ -1,13 +1,20 @@
-def my_func():
-    user_param_str = (input('введите три числа a, b , c '))
-    user_param_list = user_param_str.split()
-    ''' если бы было больше трех позиций наверно нужно применять функцю .sorted, также можно прогнать через if a>b elif ... else, но так получается много кода и я попробовал схитрить =) '''
-    sum = int(user_param_list[0]) + int(user_param_list[1]) + int(user_param_list[2]) - int(min(user_param_list))
-    return sum
-print(my_func())
+class Worker:
 
-''' решение с вводом чисел в print'e '''
-def my_func(a, b, c):
-    sum = a + b + c - min(a, b, c)
-    return sum
-print(my_func(20, 45, 88))
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {'wage': wage, 'bonus': bonus}
+
+class Position(Worker):
+
+    def get_full_name(self):
+        return self.name + ' ' + self.surname
+
+    def get_total_income(self):
+        return sum(self._income.values())
+
+a = Position('Антон', 'Зыков', 'Великий Владыка Северных Земель', 1000000, 5000)
+print('Имя работника: ', a.get_full_name())
+print('Должность работника: ', a.position)
+print('полный доход: ', a.get_total_income())

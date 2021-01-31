@@ -1,14 +1,29 @@
-def my_sum():
- s = 0
- try:
-    while True:
-             for user_numb in map(int, input('введите числа через пробел. Для закрытия программы нажмите любую букву ').split()):
-                 s += user_numb
-             print(s)
- except ValueError:
-             print(s)
+class Stationery:
 
- #return(my_sum()) - почему не нужен ретурн? потому что принты два раза?
-print(my_sum())
+    def draw(self, title):
+        self.title = title
+        print('Начинается отрисовка' )
 
-''' https://ru.stackoverflow.com/questions/459401 - перевод строки в число загуглил тут'''
+class Pen(Stationery):
+
+    def draw(self, title):
+        print('Начинается отрисовка by', title)
+
+class Pensil(Stationery):
+
+    def draw(self, title):
+        print('Начинается отрисовка by ', title)
+
+class Handle(Stationery):
+
+    def draw(self, title):
+        print('Начинается отрисовка by', title)
+
+pen = Pen()
+pen.draw('ручка')
+
+pensil = Pensil()
+pensil.draw('карандаш')
+
+handle = Handle()
+handle.draw('маркер')
